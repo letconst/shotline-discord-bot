@@ -16,3 +16,11 @@ client.on('interaction', (interaction) => {
     interactionHandler.onInteraction(interaction)
                       .catch((err) => console.error(err));
 });
+
+process
+    .on('exit', () => client.destroy())
+    .on('SIGTERM', () => client.destroy())
+    .on('SIGINT', () => {
+        client.destroy();
+        process.exit(0);
+    });
