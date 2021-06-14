@@ -1,7 +1,5 @@
-const build   = require('./interactions/build');
-
 const commands = {
-    build: build
+    build: require('./interactions/build')
 }
 
 /**

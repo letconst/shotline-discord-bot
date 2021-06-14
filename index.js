@@ -1,5 +1,5 @@
-const Discord            = require('discord.js');
-const interactionHandler = require('./modules/discord/interactionHandler');
+const Discord       = require('discord.js');
+const clientHandler = require('./modules/discord/clientHandler');
 
 require('./modules/utils/initializer')();
 
@@ -11,9 +11,9 @@ client.login(process.env.DISCORD_TOKEN)
           process.exit(-1);
       });
 
-client.on('interaction', (interaction) => {
-    interactionHandler.onInteraction(interaction)
-                      .catch((err) => console.error(err));
+client.on('interaction', async (interaction) => {
+    await clientHandler.onInteraction(interaction)
+                       .catch((err) => console.error(err));
 });
 
 process
