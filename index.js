@@ -1,10 +1,9 @@
-const Discord = require('discord.js');
-
+const Discord            = require('discord.js');
 const interactionHandler = require('./modules/discord/interactionHandler');
 
-const client = new Discord.Client({ intents: 0 });
+require('./modules/utils/initializer')();
 
-require('dotenv').config();
+const client = new Discord.Client({ intents: 0 });
 
 client.login(process.env.DISCORD_TOKEN)
       .catch((err) => {
