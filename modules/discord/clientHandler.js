@@ -1,3 +1,5 @@
+const logger = require('../utils/logger');
+
 const commands = {
     build: require('./interactions/build')
 }
@@ -8,6 +10,8 @@ const commands = {
  */
 const onInteraction = (interaction) => {
     if (!interaction.isCommand()) return null;
+
+    logger.info('Received command: ' + interaction.commandName);
 
     return commands[interaction.commandName](interaction);
 }
