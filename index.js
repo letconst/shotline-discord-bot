@@ -27,6 +27,9 @@ client.login(DISCORD_TOKEN)
           // Discordへの通知用
           app.post('/notify', (req, res) => routeHandler.onNotify(req, res, channel));
 
+          // アクティビティ設定用
+          app.post('/setActivity', (req, res) => routeHandler.onSetActivity(req, res, client));
+
           app.listen(PORT);
       })
       .catch((err) => {
