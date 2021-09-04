@@ -1,7 +1,8 @@
 const logger = require('../utils/logger');
 
 const commands = {
-    build: require('./interactions/build')
+    build: require('./interactions/build'),
+    test: require('./interactions/test'),
 }
 
 /**
