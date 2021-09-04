@@ -1,9 +1,10 @@
 const logger = require('../utils/logger');
 
 const commands = {
-    build: require('./interactions/build'),
-    test: require('./interactions/test'),
-}
+    build : require('./interactions/build'),
+    server: require('./interactions/server'),
+    test  : require('./interactions/test'),
+};
 
 /**
  *
@@ -15,8 +16,8 @@ const onInteraction = (interaction) => {
     logger.info('Received command: ' + interaction.commandName);
 
     return commands[interaction.commandName](interaction);
-}
+};
 
 module.exports = {
     onInteraction: onInteraction
-}
+};

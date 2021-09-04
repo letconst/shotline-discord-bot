@@ -17,5 +17,5 @@ module.exports = async (interaction) => {
         return interaction.reply('あなたにはビルドを実行する権限（ロール）がありません。');
     }
 
-    return subCommands[interaction.options.getSubCommand()](interaction);
+    return subCommands[interaction.options._subcommand](interaction);
 };

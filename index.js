@@ -5,7 +5,6 @@ const clientHandler = require('./modules/discord/clientHandler');
 const routeHandler  = require('./modules/common/routeHandler');
 const logger        = require('./modules/utils/logger');
 
-require('./modules/utils/initializer')();
 const { PORT, DISCORD_TOKEN, DISCORD_ID_CHANNEL_BUILDS } = process.env;
 
 app.use(bodyParser.urlencoded({
@@ -30,7 +29,7 @@ client.login(DISCORD_TOKEN)
           // アクティビティ設定用
           app.post('/setActivity', (req, res) => routeHandler.onSetActivity(req, res, client));
 
-          app.listen(PORT);
+          app.listen(Number(PORT));
       })
       .catch((err) => {
           logger.error(err);
