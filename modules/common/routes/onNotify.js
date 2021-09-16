@@ -2,7 +2,7 @@ const eventType = {
     success: 'success',
     failed : 'failed',
     timeout: 'timeout'
-}
+};
 
 /**
  *
@@ -13,7 +13,8 @@ const eventType = {
 module.exports = async (req, res, channel) => {
     switch (req.body.type) {
         case eventType.success: {
-            channel.send(`DeployGateにiOS版 ${req.body.version} がアップロードされました。`);
+            const version = req.body.version ? ` ${req.body.version} ` : '';
+            channel.send(`DeployGateに${req.body.device}版${version}がアップロードされました。\n${req.body.dist}`);
             break;
         }
 
@@ -29,4 +30,4 @@ module.exports = async (req, res, channel) => {
     }
 
     res.end();
-}
+};
