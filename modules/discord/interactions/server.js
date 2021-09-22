@@ -1,6 +1,7 @@
 const subCommands = {
-    start: require('./server.start'),
-    stop : require('./server.stop')
+    start  : require('./server.start'),
+    stop   : require('./server.stop'),
+    restart: require('./server.restart')
 };
 
 /**
